@@ -3,6 +3,9 @@ export const siteTag = 'Attorneys at law';
 export const phoneDisplay = '(619) 588-2828';
 export const phoneHref = 'tel:+16195882828';
 export const established = 1983;
+export const siteMeta = `Attorneys at law · El Cajon · established ${established}`;
+export const homeDisclaimer =
+  'Attorney advertising. The information on this website is for general information only and does not create an attorney-client relationship.';
 
 export const offices = [
   {
