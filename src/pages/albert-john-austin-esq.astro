@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import AttorneyNav from '../components/AttorneyNav.astro';
+import Albert from '../content/attorneys/albert.md';
+---
+
+<Base
+  title="Albert John Austin, Esq."
+  description="Albert John Austin, Esq., founding member of Austin & Austin, Attorneys at Law. Practicing in El Cajon since 1983."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <AttorneyNav current="albert" />
+      <h1>Albert John Austin, Esq.</h1>
+      <ul class="education">
+        <li>California Western School of Law</li>
+        <li>San Diego State University</li>
+      </ul>
+      <Albert />
+    </div>
+  </div>
+</Base>

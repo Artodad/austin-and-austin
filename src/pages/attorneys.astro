@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import AttorneyNav from '../components/AttorneyNav.astro';
+import Albert from '../content/attorneys/albert.md';
+import Julia from '../content/attorneys/julia.md';
+---
+
+<Base
+  title="Attorneys"
+  description="Albert John Austin, Esq. and Julia Austin Solaegui, Esq., Austin & Austin, Attorneys at Law."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <h1>Attorneys</h1>
+      <AttorneyNav current="index" />
+
+      <article class="attorney">
+        <h2>Albert John Austin, Esq.</h2>
+        <ul class="education">
+          <li>California Western School of Law</li>
+          <li>San Diego State University</li>
+        </ul>
+        <Albert />
+      </article>
+
+      <article class="attorney">
+        <h2>Julia Austin Solaegui, Esq.</h2>
+        <ul class="education">
+          <li>University of California at Santa Barbara</li>
+          <li>California Western School of Law</li>
+        </ul>
+        <Julia />
+      </article>
+    </div>
+  </div>
+</Base>

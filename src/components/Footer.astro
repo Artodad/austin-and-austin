@@ -1,0 +1,27 @@
+---
+import { attorneyAdvertising, disclaimer, navItems, offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="footer-nav" aria-label="Footer">
+      {
+        navItems.map((item) => (
+          <a href={withBase(item.href)}>{item.label}</a>
+        ))
+      }
+    </nav>
+    <div class="footer-offices">
+      {
+        offices.map((office) => (
+          <p>
+            {office.lines.join(', ')}
+          </p>
+        ))
+      }
+      <p><a class="phone" href={phoneHref}>{phoneDisplay}</a></p>
+    </div>
+    <p class="disclaimer">{disclaimer}</p>
+    <p class="advertising">{attorneyAdvertising}</p>
+  </div>
+</footer>

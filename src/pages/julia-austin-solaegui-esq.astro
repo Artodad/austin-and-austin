@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import AttorneyNav from '../components/AttorneyNav.astro';
+import Julia from '../content/attorneys/julia.md';
+---
+
+<Base
+  title="Julia Austin Solaegui, Esq."
+  description="Julia Austin Solaegui, Esq., Austin & Austin, Attorneys at Law. Practice focuses on estate planning."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <AttorneyNav current="julia" />
+      <h1>Julia Austin Solaegui, Esq.</h1>
+      <ul class="education">
+        <li>University of California at Santa Barbara</li>
+        <li>California Western School of Law</li>
+      </ul>
+      <Julia />
+    </div>
+  </div>
+</Base>

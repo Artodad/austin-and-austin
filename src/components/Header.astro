@@ -1,0 +1,79 @@
+---
+import { isCurrentPath, navItems, phoneDisplay, phoneHref, siteName, siteTag, withBase } from '../lib/site';
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand-row">
+      <a class="brand" href={withBase()}>
+        <span class="brand-name">{siteName}</span>
+        <span class="brand-tag">{siteTag}</span>
+      </a>
+      <a class="phone header-phone" href={phoneHref}>{phoneDisplay}</a>
+    </div>
+    <div class="nav-row">
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        {
+          navItems.map((item) => (
+            <a
+              href={withBase(item.href)}
+              aria-current={isCurrentPath(pathname, item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Open menu"
+      >
+        Menu
+      </button>
+    </div>
+  </div>
+  <div class="nav-backdrop" hidden></div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('#site-nav');
+  const backdrop = document.querySelector('.nav-backdrop');
+
+  const setOpen = (open: boolean) => {
+    nav?.classList.toggle('is-open', open);
+    backdrop?.classList.toggle('is-open', open);
+    if (backdrop instanceof HTMLElement) {
+      backdrop.hidden = !open;
+    }
+    toggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('nav-locked', open);
+  };
+
+  toggle?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  backdrop?.addEventListener('click', () => setOpen(false));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.matchMedia('(min-width: 801px)').matches) {
+      setOpen(false);
+    }
+  });
+</script>

@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import OfficesCopy from '../content/pages/offices.md';
+import { offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
+---
+
+<Base title="Home">
+  <div class="page">
+    <div class="wrap reading">
+      <h1 class="visually-hidden">Austin &amp; Austin, Attorneys at Law</h1>
+      <p class="lede">A family firm in El Cajon, established 1983.</p>
+
+      <ol class="doors">
+        <li>
+          <a class="door door-secondary" href={withBase('estate-planning')}>Estate planning</a>
+        </li>
+        <li>
+          <a class="door door-secondary" href={withBase('probate-trust-administration')}>Probate</a>
+        </li>
+        <li>
+          <a class="door door-call" href={phoneHref}>Call {phoneDisplay}</a>
+        </li>
+      </ol>
+
+      <section class="offices" aria-labelledby="offices-heading">
+        <h2 id="offices-heading">Offices</h2>
+        <OfficesCopy />
+        <div class="office-grid">
+          {
+            offices.map((office) => (
+              <div class="office">
+                <h3>{office.name}</h3>
+                <address class="address">
+                  {office.lines.map((line) => (
+                    <div>{line}</div>
+                  ))}
+                </address>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </div>
+</Base>
