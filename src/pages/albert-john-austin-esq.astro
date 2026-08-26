@@ -1,21 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
 import AttorneyNav from '../components/AttorneyNav.astro';
+import Portrait from '../components/Portrait.astro';
 import Albert from '../content/attorneys/albert.md';
+import { attorneys } from '../lib/site';
+
+const attorney = attorneys[0];
 ---
 
 <Base
-  title="Albert John Austin, Esq."
+  title={attorney.name}
   description="Albert John Austin, Esq., founding member of Austin & Austin, Attorneys at Law. Practicing in El Cajon since 1983."
 >
   <div class="page">
     <div class="wrap reading">
-      <AttorneyNav current="albert" />
-      <h1>Albert John Austin, Esq.</h1>
-      <ul class="education">
-        <li>California Western School of Law</li>
-        <li>San Diego State University</li>
-      </ul>
+      <h1>{attorney.name}</h1>
+      <AttorneyNav current={attorney.href} />
+      <Portrait src={attorney.photo} alt="" />
+      <p class="education">{attorney.education.join(' · ')}</p>
       <Albert />
     </div>
   </div>

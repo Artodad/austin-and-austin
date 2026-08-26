@@ -1,25 +1,23 @@
 ---
-import { withBase } from '../lib/site';
+import { attorneys, withBase } from '../lib/site';
 
 interface Props {
-  current?: 'albert' | 'julia' | 'index';
+  current?: 'index' | (typeof attorneys)[number]['href'];
 }
 
 const { current } = Astro.props;
 ---
 
 <nav class="subnav" aria-label="Attorneys">
-  <a href={withBase('attorneys')} aria-current={current === 'index' ? 'page' : undefined}>Both attorneys</a>
-  <a
-    href={withBase('albert-john-austin-esq')}
-    aria-current={current === 'albert' ? 'page' : undefined}
-  >
-    Albert John Austin, Esq.
-  </a>
-  <a
-    href={withBase('julia-austin-solaegui-esq')}
-    aria-current={current === 'julia' ? 'page' : undefined}
-  >
-    Julia Austin Solaegui, Esq.
-  </a>
+  <a href={withBase('attorneys')} aria-current={current === 'index' ? 'page' : undefined}>Both</a>
+  {
+    attorneys.map((attorney) => (
+      <a
+        href={withBase(attorney.href)}
+        aria-current={current === attorney.href ? 'page' : undefined}
+      >
+        {attorney.navLabel}
+      </a>
+    ))
+  }
 </nav>

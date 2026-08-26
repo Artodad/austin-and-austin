@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import OfficesCopy from '../content/pages/offices.md';
 import { offices, phoneDisplay, phoneHref } from '../lib/site';
 
 const elCajon = offices[0];
@@ -15,7 +14,6 @@ const mapLink = `https://www.openstreetmap.org/?mlat=${elCajon.lat}&mlon=${elCaj
   <div class="page">
     <div class="wrap reading">
       <h1>Contact</h1>
-      <OfficesCopy />
       <p><a class="phone" href={phoneHref}>{phoneDisplay}</a></p>
 
       <div class="office-grid">

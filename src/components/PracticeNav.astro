@@ -1,0 +1,19 @@
+---
+import { practiceAreas, withBase } from '../lib/site';
+
+interface Props {
+  current?: (typeof practiceAreas)[number]['href'];
+}
+
+const { current } = Astro.props;
+---
+
+<nav class="subnav" aria-label="Practice areas">
+  {
+    practiceAreas.map((area) => (
+      <a href={withBase(area.href)} aria-current={current === area.href ? 'page' : undefined}>
+        {area.navLabel}
+      </a>
+    ))
+  }
+</nav>

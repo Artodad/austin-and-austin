@@ -1,0 +1,12 @@
+---
+import { withBase } from '../lib/site';
+
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<img class="portrait" src={withBase(src)} alt={alt} width="900" height="1200" />

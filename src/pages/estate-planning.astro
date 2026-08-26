@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PracticeNav from '../components/PracticeNav.astro';
 import { phoneDisplay, phoneHref } from '../lib/site';
 ---
 
@@ -10,7 +11,8 @@ import { phoneDisplay, phoneHref } from '../lib/site';
   <div class="page">
     <div class="wrap reading">
       <h1>Estate planning</h1>
-      <p>Wills, Trusts, Durable Power of Attorney for Finances, Advance Health Care Directives.</p>
+      <PracticeNav current="estate-planning" />
+      <p>Wills, trusts, durable power of attorney for finances, advance health care directives.</p>
       <p>We have lectured in estate planning to church groups and schools.</p>
 
       <h2>Wills</h2>
