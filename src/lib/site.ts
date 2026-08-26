@@ -68,7 +68,7 @@ export const attorneys = [
     href: 'julia-austin-solaegui-esq',
     name: 'Julia Austin Solaegui, Esq.',
     navLabel: 'Julia',
-    role: 'Practice focuses on estate planning',
+    role: 'Estate planning',
     photo: 'photos/julia.jpg',
     education: ['University of California at Santa Barbara', 'California Western School of Law'],
   },
