@@ -18,6 +18,9 @@ jobs:
         uses: actions/checkout@v7
       - name: Install, build, and upload site
         uses: withastro/action@v6
+        env:
+          ENGINE_URL: ${{ vars.ENGINE_URL }}
+          PUBLIC_ENGINE_URL: ${{ vars.PUBLIC_ENGINE_URL }}
 
   deploy:
     needs: build

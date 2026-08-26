@@ -1,5 +1,16 @@
 ---
-import { disclaimer, navItems, offices, phoneDisplay, phoneHref, rpcLine, withBase } from '../lib/site';
+import {
+  disclaimer,
+  engineSignInHref,
+  navItems,
+  offices,
+  phoneDisplay,
+  phoneHref,
+  rpcLine,
+  withBase,
+} from '../lib/site';
+
+const signInHref = engineSignInHref();
 ---
 
 <footer class="site-footer">
@@ -9,6 +20,13 @@ import { disclaimer, navItems, offices, phoneDisplay, phoneHref, rpcLine, withBa
         navItems.map((item) => (
           <a href={withBase(item.href)}>{item.label}</a>
         ))
+      }
+      {
+        signInHref ? (
+          <a href={signInHref}>Login</a>
+        ) : (
+          <span>Login</span>
+        )
       }
     </nav>
     <div class="footer-offices">

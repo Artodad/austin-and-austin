@@ -293,9 +293,14 @@ main {
   border-right: 0;
 }
 
-.doors-blog {
-  grid-column: 1 / -1;
-  border-top: 1px solid var(--rule);
+.doors-pair {
+  grid-template-columns: 1fr 1fr;
+}
+
+span.door,
+span.door:hover {
+  color: var(--ink);
+  cursor: default;
 }
 
 .door {
@@ -320,6 +325,10 @@ main {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.4;
+}
+
+.door-note-quiet {
+  font-size: 0.82rem;
 }
 
 .door-call,
@@ -408,8 +417,8 @@ main {
     border-bottom: 1px solid var(--rule);
   }
 
-  .doors-blog {
-    border-top: 0;
+  .doors-pair {
+    grid-template-columns: 1fr;
   }
 
   .doors li:last-child {
@@ -628,7 +637,8 @@ main {
   margin: 0 0 1.2rem;
 }
 
-.footer-nav a {
+.footer-nav a,
+.footer-nav span {
   text-decoration: none;
   color: var(--ink-soft);
 }
