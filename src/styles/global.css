@@ -327,10 +327,6 @@ span.door:hover {
   line-height: 1.4;
 }
 
-.door-note-quiet {
-  font-size: 0.82rem;
-}
-
 .door-call,
 .door-call:hover {
   color: var(--maroon);
