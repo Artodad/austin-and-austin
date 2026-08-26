@@ -13,12 +13,16 @@ const attorney = attorneys[0];
   description="Albert John Austin, Esq., founding member of Austin & Austin, Attorneys at Law. Practicing in El Cajon since 1983."
 >
   <div class="page">
-    <div class="wrap reading">
+    <div class="wrap">
       <h1>{attorney.name}</h1>
       <AttorneyNav current={attorney.href} />
-      <Portrait src={attorney.photo} alt="" />
-      <p class="education">{attorney.education.join(' · ')}</p>
-      <Albert />
+      <div class="attorney-bio">
+        <Portrait src={attorney.photo} alt="" />
+        <div class="attorney-copy">
+          <p class="education">{attorney.education.join(' · ')}</p>
+          <Albert />
+        </div>
+      </div>
     </div>
   </div>
 </Base>

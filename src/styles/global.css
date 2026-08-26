@@ -1,16 +1,15 @@
 :root {
-  --paper: #f3f4f2;
-  --paper-deep: #e8e9e6;
+  --cream: #f6f2ea;
+  --sheet: #ffffff;
+  --paper: #ffffff;
+  --paper-deep: #efe8dc;
   --ink: #1c1c1c;
   --ink-soft: #3d3d3d;
-  --rule: #c9cbc7;
-  --maroon: #6b2430;
-  --maroon-ink: #541c26;
+  --rule: #d9d2c6;
+  --maroon: #851000;
   --serif: 'Source Serif 4', 'Source Serif Pro', 'Iowan Old Style', Georgia, serif;
   --sans: 'Source Sans 3', 'Source Sans Pro', 'IBM Plex Sans', system-ui, sans-serif;
-  --measure: 40rem;
-  --wide: 48rem;
-  --page: 72rem;
+  --sheet-width: 52rem;
 }
 
 *,
@@ -26,7 +25,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--paper);
+  background: var(--cream);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1.125rem;
@@ -69,16 +68,23 @@ a.phone:hover {
 h1,
 h2,
 h3 {
-  font-family: var(--sans);
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1.25;
   color: var(--ink);
+  text-transform: none;
 }
 
 h1 {
-  font-size: clamp(1.7rem, 3vw, 2.1rem);
+  font-family: var(--serif);
+  font-weight: 650;
+  font-size: clamp(1.75rem, 3vw, 2.15rem);
   margin: 0 0 0.7rem;
+}
+
+h2,
+h3 {
+  font-family: var(--sans);
 }
 
 h2 {
@@ -133,26 +139,36 @@ li + li {
   transform: none;
 }
 
-.wrap {
-  width: min(var(--measure), calc(100% - 2.4rem));
+.sheet {
+  width: min(var(--sheet-width), calc(100% - 1.5rem));
   margin-inline: auto;
+  min-height: 100vh;
+  background: var(--sheet);
+  display: flex;
+  flex-direction: column;
 }
 
-.reading {
-  width: min(var(--measure), 100%);
+main {
+  flex: 1 0 auto;
 }
 
+.wrap {
+  width: 100%;
+  padding-inline: 1.75rem;
+}
+
+.reading,
 .reading-wide {
-  width: min(var(--wide), 100%);
+  width: 100%;
 }
 
 .site-header {
   border-bottom: 1px solid var(--rule);
-  background: var(--paper);
+  background: var(--sheet);
 }
 
 .header-inner {
-  padding: 1.15rem 0 0.85rem;
+  padding: 1.35rem 0 0.95rem;
 }
 
 .brand-row {
@@ -171,9 +187,9 @@ li + li {
 .brand-name {
   display: block;
   font-family: var(--serif);
-  font-size: clamp(1.85rem, 4vw, 2.55rem);
+  font-size: clamp(2.35rem, 6vw, 3.35rem);
   font-weight: 650;
-  line-height: 1.05;
+  line-height: 1.02;
   color: var(--maroon);
 }
 
@@ -187,6 +203,7 @@ li + li {
 .header-phone {
   font-size: 1.15rem;
   white-space: nowrap;
+  color: var(--maroon);
 }
 
 .nav-row {
@@ -238,58 +255,90 @@ li + li {
   margin-bottom: 1.5rem;
 }
 
+.home-photo {
+  margin: 0 0 1.85rem;
+}
+
+.home-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.estate-split {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.estate-photo {
+  margin: 0;
+  width: min(18rem, 100%);
+}
+
+.estate-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .doors {
   list-style: none;
   padding: 0;
   margin: 0 0 4.8rem;
   display: grid;
-  gap: 0.85rem 1.1rem;
+  gap: 1.1rem 2rem;
 }
 
 .doors li {
   margin: 0;
+  padding: 0 0 0.85rem;
+  border-bottom: 1px solid var(--rule);
 }
 
 .door {
-  display: block;
-  padding: 0.95rem 1.15rem;
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
   text-align: left;
   text-decoration: none;
   font-size: 1.2rem;
+  font-weight: 600;
   line-height: 1.3;
 }
 
+.door:hover {
+  color: var(--maroon);
+}
+
 .door-note {
-  margin: 0.45rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--ink-soft);
   font-size: 0.98rem;
   line-height: 1.4;
 }
 
-.door-secondary {
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  color: var(--ink);
-}
-
-.door-secondary:hover {
-  background: var(--paper-deep);
-  color: var(--ink);
-}
-
 .door-call {
-  border: 1px solid var(--maroon);
-  background: var(--maroon);
-  color: var(--paper);
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--maroon);
   font-weight: 600;
-  font-size: 1.28rem;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .door-call:hover {
-  background: var(--maroon-ink);
-  border-color: var(--maroon-ink);
-  color: var(--paper);
-  text-decoration: none;
+  background: none;
+  color: var(--maroon);
+  text-decoration: underline;
+}
+
+.doors-call {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .practice-list {
@@ -349,6 +398,31 @@ li + li {
   }
 }
 
+@media (min-width: 800px) {
+  .estate-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 1.75rem 1.5rem;
+    align-items: start;
+  }
+
+  .estate-photo {
+    width: 17rem;
+    max-width: none;
+  }
+
+  .attorney-bio {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 1.25rem 1.75rem;
+    align-items: start;
+  }
+
+  .attorney-bio .portrait {
+    width: 100%;
+  }
+}
+
 .office h3 {
   margin-top: 0;
 }
@@ -397,12 +471,27 @@ li + li {
 
 .portrait {
   display: block;
-  width: min(13.5rem, 100%);
+  width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center top;
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.85rem;
   background: var(--paper-deep);
+}
+
+.attorney-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.attorney-bio .portrait {
+  width: min(16rem, 100%);
+  margin: 0;
+}
+
+.attorney-copy > :last-child {
+  margin-bottom: 0;
 }
 
 .subnav {
@@ -470,6 +559,7 @@ li + li {
   padding: 2rem 0 2.4rem;
   font-size: 0.98rem;
   color: var(--ink-soft);
+  background: var(--sheet);
 }
 
 .footer-nav {
@@ -514,7 +604,7 @@ li + li {
     position: fixed;
     inset: 0 0 0 auto;
     width: min(20rem, 86vw);
-    background: var(--paper);
+    background: var(--sheet);
     border-left: 1px solid var(--rule);
     padding: 4.5rem 1.4rem 1.4rem;
     flex-direction: column;
