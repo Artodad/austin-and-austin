@@ -73,7 +73,7 @@ export const attorneys = [
     navLabel: 'Julia',
     role: 'Estate planning',
     photo: 'photos/julia.jpg',
-    education: ['University of California at Santa Barbara', 'California Western School of Law'],
+    education: ['California Western School of Law', 'University of California, Santa Barbara'],
   },
 ] as const;
 

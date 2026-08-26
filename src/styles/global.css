@@ -493,9 +493,40 @@ main {
   font-size: 0.98rem;
 }
 
+.post-meta {
+  margin: 0 0 1.4rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.post-meta .author::before {
+  content: ' · ';
+}
+
+.post-body > :last-child {
+  margin-bottom: 0;
+}
+
+.fee-line {
+  margin: 0 0 0.35rem;
+}
+
+.fee-line + p:not(.fee-line) {
+  margin-top: 1rem;
+}
+
 .blog-list {
   list-style: none;
   padding: 0;
+}
+
+.blog-list a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blog-list a:hover {
+  text-decoration: underline;
 }
 
 .blog-list li {
