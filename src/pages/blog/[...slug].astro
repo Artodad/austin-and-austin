@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { phoneDisplay, phoneHref } from '../../lib/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -38,6 +39,9 @@ const published = post.data.date.toISOString().slice(0, 10);
         <div class="post-body">
           <Content />
         </div>
+        <p class="post-call">
+          <a class="phone" href={phoneHref}>{phoneDisplay}</a>
+        </p>
       </article>
     </div>
   </div>

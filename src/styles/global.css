@@ -11,6 +11,7 @@
   --serif: 'Source Serif 4', 'Source Serif Pro', 'Iowan Old Style', Georgia, serif;
   --sans: 'Source Sans 3', 'Source Sans Pro', 'IBM Plex Sans', system-ui, sans-serif;
   --sheet-width: 56rem;
+  --measure: 40rem;
 }
 
 *,
@@ -154,7 +155,18 @@ main {
 
 .reading,
 .reading-wide {
-  width: 100%;
+  width: min(var(--measure), 100%);
+}
+
+.estate-essay,
+.post {
+  max-width: var(--measure);
+}
+
+.reading h2,
+.estate-essay h2,
+.post h2 {
+  margin-top: 2.7rem;
 }
 
 .site-header {
@@ -493,10 +505,20 @@ main {
   font-size: 0.98rem;
 }
 
+.post h1 {
+  font-family: var(--serif);
+  text-transform: none;
+}
+
 .post-meta {
-  margin: 0 0 1.4rem;
-  color: var(--ink-soft);
-  font-size: 0.98rem;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.post-meta time,
+.post-meta .author {
+  display: inline;
 }
 
 .post-meta .author::before {
@@ -507,42 +529,57 @@ main {
   margin-bottom: 0;
 }
 
+.post-call {
+  margin: 2.25rem 0 0;
+}
+
+.fee-block {
+  margin: 0 0 1rem;
+}
+
 .fee-line {
   margin: 0 0 0.35rem;
 }
 
-.fee-line + p:not(.fee-line) {
-  margin-top: 1rem;
+.fee-disclose {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .blog-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+.blog-list li {
+  margin: 0;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.blog-list li:first-child {
+  padding-top: 0;
+}
+
+.blog-list time,
+.blog-list .author {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .blog-list a {
+  display: block;
+  font-family: var(--serif);
   font-weight: 600;
   text-decoration: none;
+  text-transform: none;
 }
 
 .blog-list a:hover {
   text-decoration: underline;
-}
-
-.blog-list li {
-  margin: 0 0 1.1rem;
-  padding-bottom: 1.1rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.blog-list time {
-  display: block;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-}
-
-.blog-list .author {
-  color: var(--ink-soft);
 }
 
 .map-frame {
@@ -593,15 +630,17 @@ main {
   line-height: 1.55;
 }
 
-.advertising {
-  margin-top: 0.9rem;
-  font-size: 0.88rem;
+.rpc {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 @media (min-width: 800px) {
   .estate-split {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 17rem;
+    grid-template-columns: minmax(0, var(--measure)) 17rem;
     gap: 1.75rem 1.5rem;
     align-items: start;
   }
