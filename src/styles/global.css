@@ -398,31 +398,6 @@ main {
   }
 }
 
-@media (min-width: 800px) {
-  .estate-split {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 17rem;
-    gap: 1.75rem 1.5rem;
-    align-items: start;
-  }
-
-  .estate-photo {
-    width: 17rem;
-    max-width: none;
-  }
-
-  .attorney-bio {
-    display: grid;
-    grid-template-columns: 16rem minmax(0, 1fr);
-    gap: 1.25rem 1.75rem;
-    align-items: start;
-  }
-
-  .attorney-bio .portrait {
-    width: 100%;
-  }
-}
-
 .office h3 {
   margin-top: 0;
 }
@@ -622,5 +597,30 @@ main {
     inset: 0;
     background: rgb(28 28 28 / 0.28);
     z-index: 30;
+  }
+}
+
+@media (min-width: 800px) {
+  .estate-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 1.75rem 1.5rem;
+    align-items: start;
+  }
+
+  .estate-photo {
+    width: 17rem;
+    max-width: none;
+  }
+
+  .attorney-bio {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 1.25rem 1.75rem;
+    align-items: start;
+  }
+
+  .attorney-bio .portrait {
+    width: 100%;
   }
 }
