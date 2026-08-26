@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { practiceAreas, withBase } from '../lib/site';
+---
+
+<Base
+  title="Practice areas"
+  description="Estate planning, probate, personal injury, and corporate and business law. Austin & Austin, Attorneys at Law."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <h1>Practice areas</h1>
+      <ul class="practice-list">
+        {
+          practiceAreas.map((area) => (
+            <li>
+              <a href={withBase(area.href)}>{area.label}</a>
+              <div>{area.summary}</div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Base>

@@ -1,44 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
-import HomeCopy from '../content/pages/home.md';
 import OfficesCopy from '../content/pages/offices.md';
 import { offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
 ---
 
 <Base title="Home">
-  <div class="paper-field" aria-hidden="true"></div>
   <div class="page">
     <div class="wrap reading">
       <h1 class="visually-hidden">Austin &amp; Austin, Attorneys at Law</h1>
       <p class="lede">A family firm in El Cajon, established 1983.</p>
 
       <ol class="doors">
-        <li><a href={withBase('estate-planning')}>Estate planning</a></li>
-        <li><a href={withBase('probate-trust-administration')}>Probate</a></li>
-        <li><a class="phone" href={phoneHref}>Call {phoneDisplay}</a></li>
+        <li>
+          <a class="door door-secondary" href={withBase('estate-planning')}>Estate planning</a>
+        </li>
+        <li>
+          <a class="door door-secondary" href={withBase('probate-trust-administration')}>Probate</a>
+        </li>
+        <li>
+          <a class="door door-call" href={phoneHref}>Call {phoneDisplay}</a>
+        </li>
       </ol>
-
-      <HomeCopy />
-
-      <h2>Practice areas</h2>
-      <ul class="practice-list">
-        <li>
-          <a href={withBase('estate-planning')}>Estate planning</a>
-          <div>Wills, Trusts, Power of Attorney, Advance Health Care Directives</div>
-        </li>
-        <li>
-          <a href={withBase('probate-trust-administration')}>Probate</a>
-          <div>Probate, Trust Administration, Accounting</div>
-        </li>
-        <li>
-          <a href={withBase('personal-injury')}>Personal injury</a>
-          <div>Accidents, Insurance, Wrongful Death Claims</div>
-        </li>
-        <li>
-          <a href={withBase('corporate-business-law')}>Corporate &amp; business law</a>
-          <div>Formation, Contracts, Litigation, Dissolution</div>
-        </li>
-      </ul>
 
       <section class="offices" aria-labelledby="offices-heading">
         <h2 id="offices-heading">Offices</h2>

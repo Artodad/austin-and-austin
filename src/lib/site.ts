@@ -28,22 +28,50 @@ export function withBase(path = ''): string {
   return clean ? `${base}${clean}` : base;
 }
 
+export const practiceAreas = [
+  {
+    href: 'estate-planning',
+    label: 'Estate planning',
+    summary: 'Wills, trusts, power of attorney, advance health care directives',
+  },
+  {
+    href: 'probate-trust-administration',
+    label: 'Probate',
+    summary: 'Probate, trust administration, accounting',
+  },
+  {
+    href: 'personal-injury',
+    label: 'Personal injury',
+    summary: 'Accidents, insurance, wrongful death claims',
+  },
+  {
+    href: 'corporate-business-law',
+    label: 'Corporate and business law',
+    summary: 'Formation, contracts, litigation, dissolution',
+  },
+] as const;
+
 export const navItems = [
   { href: '', label: 'Home' },
   { href: 'attorneys', label: 'Attorneys' },
-  { href: 'estate-planning', label: 'Estate planning' },
-  { href: 'probate-trust-administration', label: 'Probate' },
-  { href: 'personal-injury', label: 'Personal injury' },
-  { href: 'corporate-business-law', label: 'Corporate' },
+  { href: 'practice-areas', label: 'Practice areas' },
   { href: 'blog', label: 'Blog' },
   { href: 'contact', label: 'Contact' },
 ] as const;
+
+const practiceRoutes = ['practice-areas', ...practiceAreas.map((area) => area.href)];
 
 export function isCurrentPath(pathname: string, href: string): boolean {
   const current = pathname.replace(/\/$/, '') || withBase('').replace(/\/$/, '');
   const target = withBase(href).replace(/\/$/, '');
   if (href === '') {
     return current === target || current.endsWith('/austin-and-austin');
+  }
+  if (href === 'practice-areas') {
+    return practiceRoutes.some((route) => {
+      const practiceTarget = withBase(route).replace(/\/$/, '');
+      return current === practiceTarget || current.startsWith(`${practiceTarget}/`);
+    });
   }
   return current === target || current.startsWith(`${target}/`);
 }
