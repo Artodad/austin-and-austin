@@ -1,12 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import {
+  engineSignInHref,
   homeDisclaimer,
   offices,
   phoneDisplay,
   phoneHref,
   withBase,
 } from '../lib/site';
+
+const signInHref = engineSignInHref();
 
 const homeDoors = [
   {
@@ -51,9 +54,24 @@ const homeDoors = [
         <a class="door door-call" href={phoneHref}>Call {phoneDisplay}</a>
         <p class="door-note">El Cajon and Ramona</p>
       </li>
-      <li class="doors-blog">
+    </ol>
+
+    <ol class="doors doors-pair">
+      <li>
         <a class="door" href={withBase('blog')}>Blog</a>
         <p class="door-note">Estate planning notes, 2015–2022</p>
+      </li>
+      <li>
+        {
+          signInHref ? (
+            <a class="door" href={signInHref}>
+              Login
+            </a>
+          ) : (
+            <span class="door">Login</span>
+          )
+        }
+        <p class="door-note">Trust drafts.</p>
       </li>
     </ol>
 

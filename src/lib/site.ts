@@ -31,6 +31,40 @@ export function withBase(path = ''): string {
   return clean ? `${base}${clean}` : base;
 }
 
+function envText(value: string | undefined): string | null {
+  if (value === undefined) return null;
+  const text = value.trim();
+  return text === '' ? null : text;
+}
+
+function nodeEnvText(name: string): string | null {
+  const runtime = Reflect.get(globalThis, 'process');
+  if (typeof runtime !== 'object' || runtime === null) return null;
+  const env = Reflect.get(runtime, 'env');
+  if (typeof env !== 'object' || env === null) return null;
+  const value = Reflect.get(env, name);
+  return typeof value === 'string' ? envText(value) : null;
+}
+
+/** Deployed engine origin, no trailing slash. Empty or invalid values stay unconfigured. */
+export function engineSignInHref(): string | null {
+  const raw =
+    envText(import.meta.env.PUBLIC_ENGINE_URL) ??
+    envText(import.meta.env.ENGINE_URL) ??
+    nodeEnvText('PUBLIC_ENGINE_URL') ??
+    nodeEnvText('ENGINE_URL');
+  if (!raw) return null;
+
+  try {
+    const parsed = new URL(raw);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+  } catch {
+    return null;
+  }
+
+  return `${raw.replace(/\/+$/, '')}/sign-in`;
+}
+
 export const practiceAreas = [
   {
     href: 'estate-planning',
