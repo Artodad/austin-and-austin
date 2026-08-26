@@ -1,5 +1,5 @@
 ---
-title: What happens to my property if I die without a will or a trust?
+title: What happens to my property if I die without a will or a trust? (2015)
 # URL slug 2015/7/7; on-page published date is June 16, 2015
 date: 2015-06-16
 author: Austin & Austin

@@ -1,5 +1,5 @@
 ---
-title: What happens to my property if I die without a will or a trust?
+title: What happens to my property if I die without a will or a trust? (2022)
 date: 2022-02-10
 author: Austin & Austin
 slug: 2022/2/10/what-happens-to-my-property-if-i-die-without-a-will-or-a-trust

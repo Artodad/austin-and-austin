@@ -246,6 +246,14 @@ main {
   height: auto;
 }
 
+.home-photo figcaption {
+  margin: 0;
+  padding: 0.45rem 1.5rem 0.15rem;
+  font-size: 0.82rem;
+  text-align: center;
+  color: var(--muted);
+}
+
 .estate-split {
   display: flex;
   flex-direction: column;
@@ -280,8 +288,14 @@ main {
   border-right: 1px solid var(--rule);
 }
 
+.doors li:nth-child(3),
 .doors li:last-child {
   border-right: 0;
+}
+
+.doors-blog {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--rule);
 }
 
 .door {
@@ -392,6 +406,10 @@ main {
   .doors li {
     border-right: 0;
     border-bottom: 1px solid var(--rule);
+  }
+
+  .doors-blog {
+    border-top: 0;
   }
 
   .doors li:last-child {
