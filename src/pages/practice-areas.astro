@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import PracticeNav from '../components/PracticeNav.astro';
 import { practiceAreas, withBase } from '../lib/site';
 ---
 
@@ -11,7 +10,6 @@ import { practiceAreas, withBase } from '../lib/site';
   <div class="page">
     <div class="wrap reading">
       <h1>Practice areas</h1>
-      <PracticeNav />
       <ul class="practice-list">
         {
           practiceAreas.map((area) => (
