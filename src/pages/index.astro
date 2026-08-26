@@ -8,15 +8,26 @@ const homeDoors = practiceAreas.slice(0, 2);
 
 <Base title="Home">
   <div class="page">
-    <div class="wrap reading">
+    <div class="wrap">
       <h1 class="visually-hidden">Austin &amp; Austin, Attorneys at Law</h1>
       <p class="lede">A family firm in El Cajon, established 1983.</p>
+    </div>
 
+    <figure class="home-photo">
+      <img
+        src={withBase('photos/library.jpg')}
+        alt="Julia Austin Solaegui and Albert John Austin seated in the firm library."
+        width="1600"
+        height="1067"
+      />
+    </figure>
+
+    <div class="wrap">
       <ol class="doors">
         {
           homeDoors.map((area) => (
             <li>
-              <a class="door door-secondary" href={withBase(area.href)}>
+              <a class="door" href={withBase(area.href)}>
                 {area.label}
               </a>
               <p class="door-note">{area.summary}</p>
@@ -24,7 +35,7 @@ const homeDoors = practiceAreas.slice(0, 2);
           ))
         }
         <li class="doors-call">
-          <a class="door door-call" href={phoneHref}>Call {phoneDisplay}</a>
+          <a class="phone door-call" href={phoneHref}>Call {phoneDisplay}</a>
         </li>
       </ol>
 
