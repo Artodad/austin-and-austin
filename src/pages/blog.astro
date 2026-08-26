@@ -32,7 +32,7 @@ const dateFmt = new Intl.DateTimeFormat('en-US', {
                 {dateFmt.format(post.data.date)}
               </time>
               <a href={withBase(`blog/${post.data.slug}`)}>{post.data.title}</a>
-              <div class="author">{post.data.author}</div>
+              <span class="author">{post.data.author}</span>
             </li>
           ))
         }

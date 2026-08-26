@@ -23,7 +23,7 @@ export const offices = [
 export const disclaimer =
   'The information on this website is for general information purposes only and should not be taken as legal advice for any individual case or situation. The information on this website and receipt or viewing of this information is not intended to create, nor does it constitute an attorney-client relationship. We are licensed to practice law in the State of California serving San Diego County, East County San Diego, Imperial County, San Bernardino County, Los Angeles County and Orange County, and locally, the cities of San Diego, Chula Vista, Ramona, Julian, Alpine, Bonita, La Mesa, Lemon Grove, Santee, Lakeside, Vista, El Cajon, Poway, Carmel Mountain Ranch, and Rancho Bernardo.';
 
-export const attorneyAdvertising = 'Attorney advertising.';
+export const rpcLine = 'Albert John Austin, 275 E. Douglas Ave., Ste. 103, El Cajon.';
 
 export function withBase(path = ''): string {
   const base = import.meta.env.BASE_URL;

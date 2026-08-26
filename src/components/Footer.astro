@@ -1,5 +1,5 @@
 ---
-import { attorneyAdvertising, disclaimer, navItems, offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
+import { disclaimer, navItems, offices, phoneDisplay, phoneHref, rpcLine, withBase } from '../lib/site';
 ---
 
 <footer class="site-footer">
@@ -22,6 +22,6 @@ import { attorneyAdvertising, disclaimer, navItems, offices, phoneDisplay, phone
       <p><a class="phone" href={phoneHref}>{phoneDisplay}</a></p>
     </div>
     <p class="disclaimer">{disclaimer}</p>
-    <p class="advertising">{attorneyAdvertising}</p>
+    <p class="rpc">{rpcLine}</p>
   </div>
 </footer>
