@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PracticeNav from '../components/PracticeNav.astro';
 import { phoneDisplay, phoneHref } from '../lib/site';
 ---
 
@@ -10,6 +11,7 @@ import { phoneDisplay, phoneHref } from '../lib/site';
   <div class="page">
     <div class="wrap reading">
       <h1>Personal injury</h1>
+      <PracticeNav current="personal-injury" />
       <p>
         We handle automobile and motorcycle accidents, insurance claims, life insurance claims,
         coverage issues, wrongful death claims, and child injuries.

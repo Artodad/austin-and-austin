@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import AttorneyNav from '../components/AttorneyNav.astro';
-import Albert from '../content/attorneys/albert.md';
-import Julia from '../content/attorneys/julia.md';
+import Portrait from '../components/Portrait.astro';
+import { attorneys, withBase } from '../lib/site';
 ---
 
 <Base
@@ -14,23 +14,19 @@ import Julia from '../content/attorneys/julia.md';
       <h1>Attorneys</h1>
       <AttorneyNav current="index" />
 
-      <article class="attorney">
-        <h2>Albert John Austin, Esq.</h2>
-        <ul class="education">
-          <li>California Western School of Law</li>
-          <li>San Diego State University</li>
-        </ul>
-        <Albert />
-      </article>
-
-      <article class="attorney">
-        <h2>Julia Austin Solaegui, Esq.</h2>
-        <ul class="education">
-          <li>University of California at Santa Barbara</li>
-          <li>California Western School of Law</li>
-        </ul>
-        <Julia />
-      </article>
+      <ul class="attorney-index">
+        {
+          attorneys.map((attorney) => (
+            <li>
+              <a class="attorney-card" href={withBase(attorney.href)}>
+                <Portrait src={attorney.photo} alt="" />
+                <h2>{attorney.name}</h2>
+                <p class="role">{attorney.role}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
 </Base>

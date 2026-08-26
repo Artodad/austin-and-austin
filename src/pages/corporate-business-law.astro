@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PracticeNav from '../components/PracticeNav.astro';
 import { phoneDisplay, phoneHref } from '../lib/site';
 ---
 
@@ -10,6 +11,7 @@ import { phoneDisplay, phoneHref } from '../lib/site';
   <div class="page">
     <div class="wrap reading">
       <h1>Corporate and business law</h1>
+      <PracticeNav current="corporate-business-law" />
       <p>Formation, contracts, litigation, dissolution.</p>
       <p>
         We form both “C” and Subchapter “S” corporations, prepare documents for the issuance of

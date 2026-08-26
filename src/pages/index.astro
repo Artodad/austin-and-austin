@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import OfficesCopy from '../content/pages/offices.md';
-import { offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
+import { offices, phoneDisplay, phoneHref, practiceAreas, withBase } from '../lib/site';
+
+const homeDoors = practiceAreas.slice(0, 2);
 ---
 
 <Base title="Home">
@@ -11,20 +13,23 @@ import { offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
       <p class="lede">A family firm in El Cajon, established 1983.</p>
 
       <ol class="doors">
-        <li>
-          <a class="door door-secondary" href={withBase('estate-planning')}>Estate planning</a>
-        </li>
-        <li>
-          <a class="door door-secondary" href={withBase('probate-trust-administration')}>Probate</a>
-        </li>
-        <li>
+        {
+          homeDoors.map((area) => (
+            <li>
+              <a class="door door-secondary" href={withBase(area.href)}>
+                {area.label}
+              </a>
+              <p class="door-note">{area.summary}</p>
+            </li>
+          ))
+        }
+        <li class="doors-call">
           <a class="door door-call" href={phoneHref}>Call {phoneDisplay}</a>
         </li>
       </ol>
 
       <section class="offices" aria-labelledby="offices-heading">
         <h2 id="offices-heading">Offices</h2>
-        <OfficesCopy />
         <div class="office-grid">
           {
             offices.map((office) => (
@@ -39,6 +44,7 @@ import { offices, phoneDisplay, phoneHref, withBase } from '../lib/site';
             ))
           }
         </div>
+        <OfficesCopy />
       </section>
     </div>
   </div>

@@ -32,27 +32,49 @@ export const practiceAreas = [
   {
     href: 'estate-planning',
     label: 'Estate planning',
+    navLabel: 'Estate planning',
     summary: 'Wills, trusts, power of attorney, advance health care directives',
   },
   {
     href: 'probate-trust-administration',
     label: 'Probate',
+    navLabel: 'Probate',
     summary: 'Probate, trust administration, accounting',
   },
   {
     href: 'personal-injury',
     label: 'Personal injury',
+    navLabel: 'Personal injury',
     summary: 'Accidents, insurance, wrongful death claims',
   },
   {
     href: 'corporate-business-law',
     label: 'Corporate and business law',
+    navLabel: 'Corporate',
     summary: 'Formation, contracts, litigation, dissolution',
   },
 ] as const;
 
+export const attorneys = [
+  {
+    href: 'albert-john-austin-esq',
+    name: 'Albert John Austin, Esq.',
+    navLabel: 'John',
+    role: 'Founding member',
+    photo: 'photos/john.jpg',
+    education: ['California Western School of Law', 'San Diego State University'],
+  },
+  {
+    href: 'julia-austin-solaegui-esq',
+    name: 'Julia Austin Solaegui, Esq.',
+    navLabel: 'Julia',
+    role: 'Practice focuses on estate planning',
+    photo: 'photos/julia.jpg',
+    education: ['University of California at Santa Barbara', 'California Western School of Law'],
+  },
+] as const;
+
 export const navItems = [
-  { href: '', label: 'Home' },
   { href: 'attorneys', label: 'Attorneys' },
   { href: 'practice-areas', label: 'Practice areas' },
   { href: 'blog', label: 'Blog' },
@@ -60,6 +82,7 @@ export const navItems = [
 ] as const;
 
 const practiceRoutes = ['practice-areas', ...practiceAreas.map((area) => area.href)];
+const attorneyRoutes = ['attorneys', ...attorneys.map((attorney) => attorney.href)];
 
 export function isCurrentPath(pathname: string, href: string): boolean {
   const current = pathname.replace(/\/$/, '') || withBase('').replace(/\/$/, '');
@@ -71,6 +94,12 @@ export function isCurrentPath(pathname: string, href: string): boolean {
     return practiceRoutes.some((route) => {
       const practiceTarget = withBase(route).replace(/\/$/, '');
       return current === practiceTarget || current.startsWith(`${practiceTarget}/`);
+    });
+  }
+  if (href === 'attorneys') {
+    return attorneyRoutes.some((route) => {
+      const attorneyTarget = withBase(route).replace(/\/$/, '');
+      return current === attorneyTarget || current.startsWith(`${attorneyTarget}/`);
     });
   }
   return current === target || current.startsWith(`${target}/`);
