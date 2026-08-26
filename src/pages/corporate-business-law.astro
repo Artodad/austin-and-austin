@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { phoneDisplay, phoneHref } from '../lib/site';
+---
+
+<Base
+  title="Corporate and business law"
+  description="Corporate formation, contracts, litigation, and dissolution. Austin & Austin, Attorneys at Law."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <h1>Corporate and business law</h1>
+      <p>Formation, Contracts, Litigation, Dissolution.</p>
+      <p>
+        We form both “C” and Subchapter “S” corporations, prepare documents for the issuance of
+        stock, annual meetings of shareholders and directors, draft shareholder agreements,
+        buy-sell agreements, corporate minutes, and notices to the shareholders and the State of
+        California from the beginning of the business and annually thereafter, and dissolution or
+        wind-down of the corporation.
+      </p>
+      <p>Our services include:</p>
+      <ul>
+        <li>Litigation Matters</li>
+        <li>Business Contracts</li>
+        <li>Employee Matters</li>
+        <li>Share Transfers</li>
+        <li>Corporate Formation</li>
+        <li>Sale of Shareholder and Corporate Assets</li>
+        <li>Corporate Dissolution</li>
+        <li>Shareholder Meetings</li>
+        <li>Shareholder Agreements</li>
+        <li>Updating Corporate Books</li>
+      </ul>
+      <p>
+        We have years of experience preparing corporate documents and advising our clients
+        concerning their business and corporate needs.
+      </p>
+      <p>
+        We invite you to <a class="phone" href={phoneHref}>call our office at {phoneDisplay}</a> to
+        discuss your business concerns.
+      </p>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { phoneDisplay, phoneHref } from '../lib/site';
+---
+
+<Base
+  title="Personal injury"
+  description="Personal injury, insurance claims, and wrongful death claims. Austin & Austin, Attorneys at Law."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <h1>Personal injury</h1>
+      <p>
+        We handle automobile and motorcycle accidents, insurance claims, life insurance claims,
+        coverage issues, wrongful death claims, and child injuries.
+      </p>
+      <p>
+        Whether it is negotiating with the insurance company or filing and taking your matter to
+        trial, we are here to help.
+      </p>
+      <p>
+        After a traumatic event or accident, it is important that you speak with an attorney to
+        protect your rights and seek just compensation for your loss, whether it is the loss of
+        property, or physical injury to you or your family.
+      </p>
+      <ul>
+        <li>No Up-Front Fees For Personal Injury Cases</li>
+        <li>Free Consultation For Personal Injury Cases</li>
+        <li>No Charge Until We Win Your Case For Personal Injury Cases</li>
+        <li>Home and Hospital Visits For Personal Injury Cases</li>
+      </ul>
+      <p>We answer all your questions and are with you every step of the way.</p>
+      <p>
+        We invite you to <a class="phone" href={phoneHref}>call our office at {phoneDisplay}</a> to
+        discuss your case.
+      </p>
+    </div>
+  </div>
+</Base>

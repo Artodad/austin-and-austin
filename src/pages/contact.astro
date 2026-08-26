@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import OfficesCopy from '../content/pages/offices.md';
+import { offices, phoneDisplay, phoneHref } from '../lib/site';
+
+const elCajon = offices[0];
+const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${elCajon.lng - 0.006}%2C${elCajon.lat - 0.004}%2C${elCajon.lng + 0.006}%2C${elCajon.lat + 0.004}&layer=mapnik&marker=${elCajon.lat}%2C${elCajon.lng}`;
+const mapLink = `https://www.openstreetmap.org/?mlat=${elCajon.lat}&mlon=${elCajon.lng}#map=17/${elCajon.lat}/${elCajon.lng}`;
+---
+
+<Base
+  title="Contact"
+  description="Austin & Austin offices in El Cajon and Ramona. Call (619) 588-2828."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <h1>Contact</h1>
+      <OfficesCopy />
+      <p><a class="phone" href={phoneHref}>{phoneDisplay}</a></p>
+
+      <div class="office-grid">
+        {
+          offices.map((office) => (
+            <div class="office">
+              <h2>{office.name} office</h2>
+              <address class="address">
+                {office.lines.map((line) => (
+                  <div>{line}</div>
+                ))}
+              </address>
+            </div>
+          ))
+        }
+      </div>
+
+      <h2>El Cajon map</h2>
+      <div class="map-frame">
+        <iframe
+          title="Map of 275 E. Douglas Ave., El Cajon"
+          src={mapSrc}
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p>
+        <a href={mapLink}>Open the El Cajon office map</a>
+      </p>
+    </div>
+  </div>
+</Base>

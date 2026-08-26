@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import { phoneDisplay, phoneHref } from '../lib/site';
+---
+
+<Base
+  title="Estate planning"
+  description="Estate planning, wills, trusts, durable power of attorney for finances, and advance health care directives. Austin & Austin, El Cajon."
+>
+  <div class="page">
+    <div class="wrap reading">
+      <h1>Estate planning</h1>
+      <p>Wills, Trusts, Durable Power of Attorney for Finances, Advance Health Care Directives.</p>
+      <p>We have lectured in estate planning to church groups and schools.</p>
+
+      <h2>Wills</h2>
+      <p>
+        A will is an expression of your intent, which informs your heirs and the court how you wish
+        your estate (property) distributed. A will is generally filed with the court after your
+        death. A will identifies your spouse and children. A will can include a guardian for your
+        minor children. We are experienced in drafting wills to fit our clients’ needs.
+      </p>
+
+      <h2>Trusts</h2>
+      <p>
+        A trust avoids probate when the trustor transfers his/her property to the trust. A
+        revocable trust avoids the publicity and cost of probate and will keep your distributions
+        private.
+      </p>
+
+      <h2>Durable Power of Attorney for Finances</h2>
+      <p>
+        The purpose of a Durable Power of Attorney for finances is to give full legal authority to
+        your named agent (attorney-in-fact), to manage your assets (property) when you are unable
+        to, or when you wish another to manage your financial affairs. Should you become
+        incapacitated, your attorney-in-fact will use this document to manage your financial
+        affairs.
+      </p>
+
+      <h2>Advance Health Care Directives</h2>
+      <p>
+        The purpose of an Advance Health Care Directive is to give full legal authority to another
+        to manage your health care decisions when you are incapacitated and unable to speak for
+        yourself. Should you become incapacitated, your agent will use this document to manage your
+        health care. A nomination of conservatorship is included in our Advance Health Care
+        Directive. An Advance Health Care Directive also gives legal evidence to your family and
+        physician of your decisions concerning life support.
+      </p>
+
+      <p>
+        We invite you to <a class="phone" href={phoneHref}>call our office at {phoneDisplay}</a> to
+        discuss your estate planning needs.
+      </p>
+    </div>
+  </div>
+</Base>
