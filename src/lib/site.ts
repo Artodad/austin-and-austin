@@ -58,11 +58,10 @@ export function engineSignInHref(): string | null {
   try {
     const parsed = new URL(raw);
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return null;
+    return parsed.origin;
   } catch {
     return null;
   }
-
-  return `${raw.replace(/\/+$/, '')}/sign-in`;
 }
 
 export const practiceAreas = [
